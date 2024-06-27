@@ -392,6 +392,36 @@ export interface ApiBlogBlog extends Schema.CollectionType {
   };
 }
 
+export interface ApiDonationNumberDonationNumber extends Schema.CollectionType {
+  collectionName: 'donation_numbers';
+  info: {
+    singularName: 'donation-number';
+    pluralName: 'donation-numbers';
+    displayName: 'DonationNumber';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    donations: Attribute.BigInteger;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::donation-number.donation-number',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::donation-number.donation-number',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface PluginUploadFile extends Schema.CollectionType {
   collectionName: 'files';
   info: {
@@ -829,6 +859,7 @@ declare module '@strapi/types' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'api::blog.blog': ApiBlogBlog;
+      'api::donation-number.donation-number': ApiDonationNumberDonationNumber;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::content-releases.release': PluginContentReleasesRelease;

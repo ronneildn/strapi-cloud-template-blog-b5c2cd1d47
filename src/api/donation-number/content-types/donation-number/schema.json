@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "donation_numbers",
+  "info": {
+    "singularName": "donation-number",
+    "pluralName": "donation-numbers",
+    "displayName": "DonationNumber"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "donations": {
+      "type": "biginteger"
+    }
+  }
+}
